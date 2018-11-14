@@ -5,19 +5,22 @@ $(document).ready(function () {
     var query = "http://api.lmiforall.org.uk/api/v1/soc/search?q=" + input;
     var socCode;
 
+    // get the user query from api
     $.ajax({
-      url: query,
-      type: "get",
+      url: "http://api.lmiforall.org.uk/api/v1/soc/search",
+      type: "GET",
+      data: {q: input},
       dataType: "json",
       success: function (data) {
         console.log(data);
         socCode = data[0].soc;
         $("html").append(socCode);
       }
-      // implement a fail function ...
+      // implement error, complete and beforeSend functions...
 
     });
 
+    // put the user query in the database
     $.ajax({
       type: 'POST',
       url: 'log_search.php',
