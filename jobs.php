@@ -12,10 +12,13 @@
 <body>
   <h1>This is a page</h1>
 
-  <input id="job-search-input" type="text" name="job-search-input">
-  <button id="job-search">search</button>
-  
-  
+  <form id="job-search-form" name="job-search-form">
+    <input id="job-search-input" type="text" name="q">
+    <!-- <button id="job-search">search</button> -->
+    <input type="submit"> 
+  </form>
+
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="scripts/job_search.js"></script>
