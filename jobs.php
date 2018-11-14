@@ -11,9 +11,19 @@
 
 <body>
   <h1>This is a page</h1>
-
-  <input id="job-search-input" type="text" name="job-search-input">
-  <button id="job-search">search</button>
+  <div class="user-input">
+    <h3>Enter Job Name</h3>
+    <input id="job-search-input" type="text" name="job-search-input">
+    <button id="job-search-button">search</button>
+  </div>
+  <br> 
+  <div class="user-input">
+    <h3>Soc Number Input</h3>
+    <input id="soc-input" type="text" name="soc-input">
+    <h3>Age Input</h3>
+    <input id="age-input" type="text" name="age-input">
+    <button id="soc-number-button">search</button>
+  </div>
   
   
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
