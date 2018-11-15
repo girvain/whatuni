@@ -10,7 +10,8 @@ $(document).ready(function () {
     var socBusLaw = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F300?date=2009:2015"; // wrong, Social Sciences, Journalism and Information programmes
     var engManCon = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F500?date=2009:2015"; // wrong, Natural Sciences, Mathematics and Statistics
 
-    // // bank api
+    // Uncomment this to see it working
+
     // $(function () {
     //     $.ajax({
     //         url: agr,
@@ -35,6 +36,7 @@ $(document).ready(function () {
 
     //             console.log(dateArray, valueArray);
 
+    //             // This is the make graph part
     //             var obj = makeObj(dateArray, valueArray);
     //             renderGraph('male-female-chart', obj);
     //         }
@@ -43,10 +45,10 @@ $(document).ready(function () {
     // });
 
     // THIS SHOULD REPLACE THE ABOVE CODE // ----------------------------------------------  WHY doesn't this work !!!!!!!!
-    var agrQuery = (getData(agr));
-    var agroGraphObj = makeObj(agrQuery.dateArray, agricultureQuery.valueArray);
-    console.log(agroGraphObj);
-    renderGraph("male-female-chart", agroGraphObj);
+    // var agrQuery = (getData(agr));
+    // var agroGraphObj = makeObj(agrQuery.dateArray, agricultureQuery.valueArray);
+    // console.log(agroGraphObj);
+    // renderGraph("male-female-chart", agroGraphObj);
 
 
 
