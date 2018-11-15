@@ -10,20 +10,62 @@ $(document).ready(function () {
     var socBusLaw = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F300?date=2009:2015"; // wrong, Social Sciences, Journalism and Information programmes
     var engManCon = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F500?date=2009:2015"; // wrong, Natural Sciences, Mathematics and Statistics
 
-    // bank api
-    $(function () {
+    // // bank api
+    // $(function () {
+    //     $.ajax({
+    //         url: agr,
+    //         type: "get",
+    //         cache: false,
+    //         dataType: "xml",
+    //         success: function (data) {
+    //             console.log(data);
+
+    //             // make JSON objects with the data from the XML 
+    //             var descArray = [];
+    //             var dateArray = [];
+    //             var valueArray = [];
+
+    //             $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
+    //                 descArray.push($(val).find('wb\\:indicator').text());
+    //                 dateArray.push($(val).find('wb\\:date').text());
+    //                 // the xml of the % is a string so needs converted to an int
+    //                 var intVal = parseFloat($(val).find('wb\\:value').text());
+    //                 valueArray.push(intVal);
+    //             });
+
+    //             console.log(dateArray, valueArray);
+
+    //             var obj = makeObj(dateArray, valueArray);
+    //             renderGraph('male-female-chart', obj);
+    //         }
+
+    //     }); // end of ajax
+    // });
+
+    // THIS SHOULD REPLACE THE ABOVE CODE // ----------------------------------------------  WHY doesn't this work !!!!!!!!
+    var agrQuery = (getData(agr));
+    var agroGraphObj = makeObj(agrQuery.dateArray, agricultureQuery.valueArray);
+    console.log(agroGraphObj);
+    renderGraph("male-female-chart", agroGraphObj);
+
+
+
+    /* -------------------------- Functions --------------------------------- */
+
+    // this function will query the api and format and append the results in three 
+    // arrays, descriptions, dates and values. Then inserts them into an object and
+    // returns the object
+    function getData(url) {
+        var descArray = [];
+        var dateArray = [];
+        var valueArray = [];
+
         $.ajax({
-            url: agr,
+            url: url,
             type: "get",
             cache: false,
             dataType: "xml",
             success: function (data) {
-                console.log(data);
-
-                // make JSON objects with the data from the XML 
-                var descArray = [];
-                var dateArray = [];
-                var valueArray = [];
 
                 $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
                     descArray.push($(val).find('wb\\:indicator').text());
@@ -33,54 +75,64 @@ $(document).ready(function () {
                     valueArray.push(intVal);
                 });
 
-                console.log(dateArray, valueArray);
+                // var agroGraphObj = makeObj(dateArray, valueArray);
+                // renderGraph("male-female-chart", agroGraphObj);
 
-                var obj = makeObj(dateArray, valueArray);
-                renderGraph('male-female-chart', obj);
             }
-
         }); // end of ajax
-    });
+
+        // bundle the arrays into an array return
+        var result = {
+            "descArray": descArray,
+            "dateArray": dateArray,
+            "valueArray": valueArray
+        };
+        return result;
+    }
+
+    /* Function to create an object for graphing, Args: dates array, values array */
+    function makeObj(dates, values) {
+        var chartObj = {
+            "type": "bar",
+            "title": {
+                "text": "Chart Data Object"
+            },
+            "scale-x": {
+                "values": dates
+            },
+            "series": [{
+                "values": values
+            }]
+        };
+        return chartObj;
+    }
+
+    //  Function to render a graph. Args: id or class
+    function renderGraph(id, obj) {
+        zingchart.render({ // Render Method[3]
+            id: id,
+            data: obj,
+            height: 400,
+            width: '100%'
+        });
+
+    }
+
+
+    // Currently NOT!!! in use 
+    //
+    // XML approach to output ul elements of the graph data                
+    function outputXMLList() {
+        var output = '<ul class="searchresults">';
+        $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
+            var desc = '<li>' + $(val).find('wb\\:indicator').text() + '</li>';
+            var date = '<li>' + $(val).find('wb\\:date').text() + '</li>';
+            var value = '<li>' + $(val).find('wb\\:value').text() + '</li>';
+
+            output += desc + date + value + '</ul>';
+            $('#stats-area').append(output);
+            output = '<ul class="searchresults">';
+        });
+    }
+
 });
-
-/* Function to create an object for graphing */
-function makeObj(dates, values) {
-    var chartObj = {
-        "type": "bar",
-        "title": {
-            "text": "Chart Data Object"
-        },
-        "scale-x": {
-            "values": dates
-        },
-        "series": [{
-            "values": values
-        }]
-    };
-    return chartObj;
-}
-
-//  Function to render a graph. Args: id or class
-function renderGraph(id, chartObj) {
-    zingchart.render({ // Render Method[3]
-        id: id,
-        data: chartObj,
-        height: 400,
-        width: '100%'
-    });
-
-}
-
-// XML approach to output ul elements of the graph data                
-function outputXMLList() {
-    var output = '<ul class="searchresults">';
-    $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
-        var desc = '<li>' + $(val).find('wb\\:indicator').text() + '</li>';
-        var date = '<li>' + $(val).find('wb\\:date').text() + '</li>';
-        var value = '<li>' + $(val).find('wb\\:value').text() + '</li>';
-
-        output += desc + date + value + '</ul>';
-        $('#stats-area').append(output);
-        output = '<ul class="searchresults">';
-    });
-}
