@@ -6,13 +6,6 @@
     "domains": ["abdn.ac.uk"],
     "name": "University of Aberdeen"
 }, {
-    "web_pages": ["http://www.abdn.ac.uk/"],
-    "alpha_two_code": "GB",
-    "state-province": null,
-    "country": "United Kingdom",
-    "domains": ["aberdeen.ac.uk"],
-    "name": "University of Aberdeen"
-}, {
     "web_pages": ["http://www.aber.ac.uk/"],
     "alpha_two_code": "GB",
     "state-province": null,

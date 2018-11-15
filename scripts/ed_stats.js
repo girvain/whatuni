@@ -15,13 +15,74 @@ $(document).ready(function () {
         $.ajax({
             url: agr,
             type: "get",
+            cache: false,
             dataType: "xml",
             success: function (data) {
                 console.log(data);
-                
 
+                var output = '<ul class="searchresults">';
+                // XML approach to output ul elements of the graph data                
+                $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
+                    var desc = '<li>' + $(val).find('wb\\:indicator').text() + '</li>';
+                    var date = '<li>' + $(val).find('wb\\:date').text() + '</li>';
+                    var value = '<li>' + $(val).find('wb\\:value').text() + '</li>';
+
+                    output += desc + date + value + '</ul>';
+                    $('#stats-area').append(output);
+                    output = '<ul class="searchresults">';
+                });
+
+                // make JSON objects with the data from the XML 
+                var descArray = [];
+                var dateArray = [];
+                var valueArray = [];
+
+                $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
+                    descArray.push($(val).find('wb\\:indicator').text());
+                    dateArray.push($(val).find('wb\\:date').text());
+                    // the xml of the % is a string so needs converted to an int
+                    var intVal = parseInt($(val).find('wb\\:value').text());
+                    valueArray.push(intVal);
+                });
+
+                console.log(dateArray, valueArray);
+
+                var chartObj = {
+                    "type": "bar",
+                    "title": {
+                        "text": "Chart Data Object"
+                    },
+                    "series": [{
+                        "values": valueArray
+                    }]
+                };
+
+                console.log(chartObj);
+                zingchart.render({ // Render Method[3]
+                    id: 'male-female-chart',
+                    data: chartObj,
+                    height: 400,
+                    width: '100%'
+                });
             }
-        });
+
+        }); // end of ajax
     });
-    
+
+
 });
+
+function makeObj(array) {
+    var chartObj = {
+        "type": "bar",
+        "title": {
+            "text": "Chart Data Object"
+        },
+        "series": [{
+            "values": array
+        }]
+    };
+        
+    //chartObj.series.values = array;
+    return chartObj;
+}
