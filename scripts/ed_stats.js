@@ -45,10 +45,15 @@ $(document).ready(function () {
     // });
 
     // THIS SHOULD REPLACE THE ABOVE CODE // ----------------------------------------------  WHY doesn't this work !!!!!!!!
-    // var agrQuery = (getData(agr));
-    // var agroGraphObj = makeObj(agrQuery.dateArray, agricultureQuery.valueArray);
-    // console.log(agroGraphObj);
-    // renderGraph("male-female-chart", agroGraphObj);
+    var agrQuery = getData(agr);
+    var agroGraphObj = makeObj(agrQuery.dateArray, agrQuery.valueArray);
+    console.log(agroGraphObj);
+    renderGraph("male-female-chart", agroGraphObj);
+
+
+
+
+
 
 
 
@@ -61,7 +66,6 @@ $(document).ready(function () {
         var descArray = [];
         var dateArray = [];
         var valueArray = [];
-
         $.ajax({
             url: url,
             type: "get",
