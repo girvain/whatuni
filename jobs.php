@@ -11,23 +11,31 @@
 
 <body>
   <h1>This is a page</h1>
-  <div class="user-input">
+  <div id="stats-area">
+    <h2>Top 10 Most Popular Searches</h2>
+    <div id="search-log-chart-section">
+      <div id="search-log-chart"></div>
+    </div>
+  </div>
+
+  <div id="job-name-input">
     <h3>Enter Job Name</h3>
     <input id="job-search-input" type="text" name="job-search-input">
     <button id="job-search-button">search</button>
   </div>
+  <div id="job-search-display-area">
+
+  </div>
+  <div id="soc-number-display-area">
+
+  </div>
   <br>
-  <div class="user-input">
+  <div id="soc-number-input">
     <h3>Soc Number Input</h3>
     <input id="soc-input" type="text" name="soc-input">
     <h3>Age Input</h3>
     <input id="age-input" type="text" name="age-input">
     <button id="soc-number-button">search</button>
-  </div>
-  <div id="stats-area">
-    <div id="search-log-chart-section">
-      <div id="search-log-chart"></div>
-    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

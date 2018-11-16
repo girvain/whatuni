@@ -15,7 +15,7 @@ if (!empty($text)) {
 }
 
 // output the search parameters from database on pageload, not every time!
-$output_query = "SELECT search_text, total FROM search_log";
+$output_query = "SELECT search_text, total FROM search_log ORDER BY total DESC LIMIT 10";
 $result = mysqli_query($dbc, $output_query)
 or die('Error querying database');
 
@@ -34,7 +34,4 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo '<script>var searchLog = ' . json_encode($array) . ';'; //Here ProductsData is just a simple String u can write anything instead
 echo 'console.log(searchLog);</script>';
 
-echo '<script>';
-echo 'var name = ' . json_encode($name) . ';';
-echo '</script>';
 mysqli_close($dbc);
