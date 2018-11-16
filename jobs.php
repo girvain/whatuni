@@ -16,7 +16,7 @@
     <input id="job-search-input" type="text" name="job-search-input">
     <button id="job-search-button">search</button>
   </div>
-  <br> 
+  <br>
   <div class="user-input">
     <h3>Soc Number Input</h3>
     <input id="soc-input" type="text" name="soc-input">
@@ -24,10 +24,15 @@
     <input id="age-input" type="text" name="age-input">
     <button id="soc-number-button">search</button>
   </div>
-  
-  
+  <div id="stats-area">
+    <div id="search-log-chart-section">
+      <div id="search-log-chart"></div>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script src="scripts/job_search.js"></script>
 
 </body>
