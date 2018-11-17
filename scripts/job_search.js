@@ -1,4 +1,9 @@
-// jobs
+/**
+ * TODO:
+ * -> make error handleing for api queries
+ * -> make more graph colours 
+ * -> only log successful searches???
+ */
 $(document).ready(function () {
     // call makeGraph when the page loads
     makeGraph();
@@ -18,12 +23,6 @@ $(document).ready(function () {
                 $("html").prepend(data); // run the script that log_search.php output in ajax
                 // create ararys with the search data for graphing, Only take the first ten objects!
                 var i;
-                // for (i = 0; (i < searchLog.length && i < 10); i++) {
-                //   searchesArray.push(searchLog[i].search_text);
-                //   // convert the values to integers
-                //   var converted = parseInt(searchLog[i].total);
-                //   valueArray.push(converted);
-                // }
                 $(searchLog).each(function (key, val) {
                     searchesArray.push(val.search_text);
                     // convert the values to integers

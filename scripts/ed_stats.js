@@ -2,6 +2,8 @@
  * TODO: 
  * -> fix the api queries as they are incorrect
  * -> decide if the percentages should have 2 or 6 decimal points
+ * -> get the right api query to have seperate male/female results for all students
+ * -> update the all students graph object to look like the rest
  */
 $(document).ready(function () {
 
