@@ -1,3 +1,8 @@
+/**
+ * TODO: 
+ * -> fix the api queries as they are incorrect
+ * -> decide if the percentages should have 2 or 6 decimal points
+ */
 $(document).ready(function () {
 
     var all = "http://api.worldbank.org/v2/countries/GBR/indicators/SE.TER.ENRL?date=2009:2015";
@@ -23,15 +28,18 @@ $(document).ready(function () {
 
 
 
-    /* -------------------------- Functions --------------------------------- */
+    /* -------------------------------------------- Functions --------------------------------------------------- */
 
-    /* this function will query the api, format and append the results in three 
-       arrays: descriptions, dates and values. Then creates a graph data object with
-       makeObj() and renders the graph with renderGraph().
-       args: url - this is the api query
-            id - This is the html id or class to insert the graph
-    */
-
+    /**
+     * this function will query the api, format and append the results in three 
+     *    arrays: descriptions, dates and values. Then creates a graph data object with
+     *    makeObj() and renders the graph with renderGraph().
+     *    args: url - this is the api query
+     *    id - This is the html id or class to insert the graph
+     *
+     * @param {string} url - the api query from above
+     * @param {string} id - the html id tag where it will output
+     */
     function getData(url, id) {
         var descArray = [];
         var dateArray = [];
@@ -47,6 +55,8 @@ $(document).ready(function () {
                     dateArray.push($(val).find('wb\\:date').text());
                     // the xml of the % is a string so needs converted to an int
                     var intVal = parseFloat($(val).find('wb\\:value').text());
+                    /* -------------------- uncomment this for .00  decimal format -----------------*/
+                    intVal = parseFloat(intVal.toFixed(2)); // toFixed converts to string so needs re parsed
                     valueArray.push(intVal);
                 });
                 // select the div passed to function, then append the description in the 
@@ -92,11 +102,11 @@ $(document).ready(function () {
                     "type": "bar",
                     "title": {
                         "text": "",
-                        "adjustLayout":"true"
+                        "adjustLayout": "true"
                     },
-                    "plotarea":{
-                        "margin":"dynamic",
-                        "adjustLayout":"true"
+                    "plotarea": {
+                        "margin": "dynamic",
+                        "adjustLayout": "true"
                     },
                     "scale-y": {
                         // "font-size": "5px",
@@ -113,7 +123,7 @@ $(document).ready(function () {
                     },
                     "scale-x": {
                         "values": dateArray,
-                        "adjustLayout":"true"
+                        "adjustLayout": "true"
                     },
                     "series": [{
                         "values": valueArray
@@ -126,31 +136,6 @@ $(document).ready(function () {
 
     /* Function to create an object for graphing, Args: dates array, values array */
     function makeObj(dates, values, graphType) {
-        // var chartObj = {
-        //     "type": graphType,
-        //     "title": {
-        //         "text": "",
-        //     },
-        //     "scale-y": {
-        //         "line-color": "none",
-        //         "tick": {
-        //             "line-color": "none"
-        //         },
-        //         "guide": {
-        //             "line-style": "solid"
-        //         },
-        //         "item": {
-        //             "color": "#606060"
-        //         }
-        //     },
-        //     "scale-x": {
-        //         "values": dates
-        //     },
-        //     "series": [{
-        //         "values": values
-        //     }]
-        // };
-
         var chartObj = {
             "globals": {
                 "font-family": "Helvetica"
@@ -300,23 +285,6 @@ $(document).ready(function () {
             width: '100%'
         });
 
-    }
-
-
-    // Currently NOT!!! in use 
-    //
-    // XML approach to output ul elements of the graph data                
-    function outputXMLList() {
-        var output = '<ul class="searchresults">';
-        $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
-            var desc = '<li>' + $(val).find('wb\\:indicator').text() + '</li>';
-            var date = '<li>' + $(val).find('wb\\:date').text() + '</li>';
-            var value = '<li>' + $(val).find('wb\\:value').text() + '</li>';
-
-            output += desc + date + value + '</ul>';
-            $('#stats-area').append(output);
-            output = '<ul class="searchresults">';
-        });
     }
 
 });

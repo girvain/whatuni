@@ -83,7 +83,7 @@ $(document).ready(function () {
                             "visible": false
                         },
                         "plot-label": {
-                            "text": "%data-browser: %v% of total",
+                            "text": "",
                             "multiple": true,
                             "font-size": "12px",
                             "color": "#606060",
@@ -183,7 +183,6 @@ $(document).ready(function () {
     $("#job-search-button").click(function () {
         var input = $("#job-search-input").val();
         var query = "http://api.lmiforall.org.uk/api/v1/soc/search?q=" + input;
-        var socCode;
 
         // get the user query from api
         $.ajax({
@@ -205,12 +204,21 @@ $(document).ready(function () {
                     $(newDiv).append('<p class="title">' + val.title + '</p>');
                     $(newDiv).append('<h3 class="description-heading">Job Description</h3>');
                     $(newDiv).append('<p class="description">' + val.description + '</p>');
-                    $(newDiv).append('<h3 class="soc-heading">Soc Number</h3>');
-                    $(newDiv).append('<p class="soc">' + val.soc + '</p>');
+                    $(newDiv).append('<p class="soc-number">(soc number: ' + val.soc + ')</p>');
+                    /* ----------------  uncomment this if you want a soc code section -------------------- */
+                    // $(newDiv).append('<h3 class="soc-heading">Soc Number</h3>');
+                    // $(newDiv).append('<p class="soc">' + val.soc + '</p>');
 
+                    // add a button to the job-info-container div then add the callback to it with the getAvgWage()
+                    var button = $('<button id="' + val.title + '">avg salary?</button>').appendTo(newDiv);
+                    $(button).click(function() {
+                        getAvgWage(val.soc, "35", newDiv);// 30 is just a litral input to avoid user input (average age)
+                    });
+                    
                 });
 
-                // NOTE: comment or uncomment this if the grapgh update should be on every button click !!!!!
+                console.log(socCodesMap);
+                /*----------------- uncomment this if the grapgh update should be on every button click --------- */
                 // makeGraph();
             }
             // implement error, complete and beforeSend functions...
@@ -231,6 +239,34 @@ $(document).ready(function () {
 
     }); // end of #job-seach-button onClick
 
+    // function to get the average weekly wage of a job. takes a soc code, age and an html div to 
+    // insert the output into.
+    function getAvgWage(soc, age, div) {
+        $.ajax({
+            url: "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay",
+            type: "GET",
+            cache: false,
+            data: {
+                soc: soc,
+                age: age
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                // get a new div for p estpat elements
+                var newDiv = $('<div class="wage-info-container"></div>').appendTo(div); 
+                $(data.series).each(function (key, val) {
+                    $(newDiv).append('<p class="estpay">In ' + val.year + ' the average weekly wage was £' + val.estpay + '</p>');
+                    // $(newDiv).append('<p class="year">' + val.year + '</p>');
+                });
+
+            }
+            // implement error, complete and beforeSend functions...
+
+        });
+
+    }
+
     // do soc number queryevent 
     $("#soc-number-button").click(function () {
         var socInput = $("#soc-input").val();
@@ -248,8 +284,8 @@ $(document).ready(function () {
                 console.log(data);
                 // clear the output area before adding to it
                 $("#soc-number-display-area").empty();
+                var newDiv = $('<div class="wage-info-container"></div>').appendTo("#soc-number-display-area");
                 $(data.series).each(function (key, val) {
-                    var newDiv = $('<div class="wage-info-container"></div>').appendTo("#soc-number-display-area");
                     $(newDiv).append('<p class="estpay">In ' + val.year + ' average weekly wage was ' + val.estpay + '</p>');
                     // $(newDiv).append('<p class="year">' + val.year + '</p>');
                 });
