@@ -5,20 +5,67 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/navbar.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <h1>Uni's</h1>
-    <div id="unis-display-area">
-        
+    <div class="container">
+
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="#" id="bar-button">
+                <i class="fa fa-bars fa-lg"></i>
+            </a>
+            <!-- <img src="images/logo.png" alt=""> -->
+            <ul id="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unis.html" class="active">Uni's</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+            </ul>
+        </div>
+
+
+        <nav>
+            <ul>
+                <img src="images/logo.png" alt="" id="nav-logo">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="unis.html">Uni's</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="jobs.php">Jobs</a></li>
+            </ul>
+        </nav>
+        <div>
+            <img class="feature-img" src="images/accomplishment.jpg" alt="">
+        </div>
+
+        <div class="main-container">
+            <h2>List of Universities in the UK</h2>
+            <div id="unis-display-area"></div>
+        </div>
+        <footer class="center-text">
+            <img src="images/logo.png" alt="">
+
+            <a href="mailto:gross204@caledonian.ac.uk" target="_top">gross204@caledonian.ac.uk</a>
+            <p>07587032343</p>
+            <div class="social-media-icon-container center-text">
+                <i class="fab fa-twitter-square fa-lg"></i>
+                <i class="fab fa-facebook-square fa-lg"></i>
+                <i class="fab fa-google-plus-square fa-lg"></i>
+                <i class="fab fa-pinterest-square fa-lg"></i>
+            </div>
+            <p id="copyright">&copy gross productions</p>
+        </footer>
 
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="scripts/load_uni.js"></script>
+    <script src="scripts/navbar.js"></script>
 </body>
 
 </html>

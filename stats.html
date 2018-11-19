@@ -7,43 +7,100 @@
   <title>stats</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
 </head>
 
 <body>
   <h1>Stats</h1>
-  <div id="stats-area">
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <a href="#" id="bar-button">
+      <i class="fa fa-bars fa-lg"></i>
+    </a>
+    <!-- <img src="" alt=""> -->
+    <ul id="nav-items">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="unis.html">Uni's</a></li>
+      <li><a href="stats.html" class="active">Stats</a></li>
+      <li><a href="jobs.php">Jobs</a></li>
+    </ul>
+  </div>
+
+
+  <nav>
+    <img src="" alt="">
+    <ul>
+      <img src="images/logo.png" alt="" id="nav-logo">
+      <li><a href="index.html">home</a></li>
+      <li><a href="unis.html">Uni's</a></li>
+      <li><a href="stats.html">Stats</a></li>
+      <li><a href="jobs.php">Jobs</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <p>Some text to describe whats going on in this page</p>
+  </div>
+
+  <!-- <div id="stats-area"> -->
     <div id="male-female-chart-section">
       <div id="male-female-chart"></div>
     </div>
-    <div id="agriculture-chart-section">
-      <div id="agriculture-chart" class="chart"></div>
+    <!-- <div class="grid-area"> -->
+      <div id="agriculture-chart-section">
+        <div id="agriculture-chart"></div>
+      </div>
+      
+      <div id="education-chart-section">
+        <div id="ed-chart"></div>
+      </div>
+      <div id="test-chart-section">
+        <div id="test-chart"></div>
+      </div>
+
+      <div id="health-welfare-chart-section">
+        <div id="health-welfare-chart"></div>
+      </div>
+      <div id="humanities-arts-chart-section">
+        <div id="humanities-art-chart"></div>
+      </div>
+      <div id="science-chart-section">
+        <div id="science-chart"></div>
+      </div>
+      <div id="services-chart-section">
+        <div id="services-chart"></div>
+      </div>
+      <div id="social-business-law-chart-section">
+        <div id="social-business-law-chart"></div>
+      </div>
+      <div id="engin-manuf-constru-chart-section">
+        <div id="engin-manuf-constru-chart"></div>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+  <!--end of stats-area-->
+  <footer class="center-text">
+    <img src="images/logo.png" alt="">
+
+    <a href="mailto:gross204@caledonian.ac.uk" target="_top">gross204@caledonian.ac.uk</a>
+    <p>07587032343</p>
+    <div class="social-media-icon-container center-text">
+      <i class="fab fa-twitter-square fa-lg"></i>
+      <i class="fab fa-facebook-square fa-lg"></i>
+      <i class="fab fa-google-plus-square fa-lg"></i>
+      <i class="fab fa-pinterest-square fa-lg"></i>
     </div>
-    <div id="education-chart-section">
-      <div id="education-chart"></div>
-    </div>
-    <div id="health-welfare-chart-section">
-      <div id="health-welfare-chart"></div>
-    </div>
-    <div id="humanities-arts-chart-section">
-      <div id="humanities-art-chart"></div>
-    </div>
-    <div id="science-chart-section">
-      <div id="science-chart"></div>
-    </div>
-    <div id="services-chart-section">
-      <div id="services-chart"></div>
-    </div>
-    <div id="social-business-law-chart-section">
-      <div id="social-business-law-chart"></div>
-    </div>
-    <div id="engin-manuf-constru-chart-section">
-      <div id="engin-manuf-constru-chart"></div>
-    </div>
-  </div>
+    <p id="copyright">&copy gross productions</p>
+  </footer>
+
+
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script src="scripts/ed_stats.js"></script>
+  <script src="scripts/navbar.js"></script>
 </body>
 
 </html>

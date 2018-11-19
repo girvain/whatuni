@@ -198,7 +198,7 @@ $(document).ready(function () {
                 $("#job-search-display-area").empty();
                 $(data).each(function (key, val) {
                     console.log(data.title);
-                    var newDiv = $('<div class="job-info-container"></div>').appendTo("#job-search-display-area");
+                    var newDiv = $('<div class="job-info-container shadow-container"></div>').appendTo("#job-search-display-area");
                     $(newDiv).append('<h3 class="title-heading">Job Title</h3>');
                     $(newDiv).append('<p class="title">' + val.title + '</p>');
                     $(newDiv).append('<h3 class="description-heading">Job Description</h3>');
@@ -209,14 +209,13 @@ $(document).ready(function () {
                     // $(newDiv).append('<p class="soc">' + val.soc + '</p>');
 
                     // add a button to the job-info-container div then add the callback to it with the getAvgWage()
-                    var button = $('<button id="' + val.title + '">avg salary?</button>').appendTo(newDiv);
+                    var button = $('<button class="button-invert" id="' + val.title + '">avg salary?</button>').appendTo(newDiv);
                     $(button).click(function() {
                         getAvgWage(val.soc, "35", newDiv);// 30 is just a litral input to avoid user input (average age)
                     });
                     
                 });
 
-                console.log(socCodesMap);
                 /*----------------- uncomment this if the grapgh update should be on every button click --------- */
                 // makeGraph();
             }
@@ -252,13 +251,14 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 console.log(data);
+                // get the div, find the inner div containing the wage elements, empty it before creating more content
+                $(div).find(".wage-info-container").empty();
                 // get a new div for p estpat elements
                 var newDiv = $('<div class="wage-info-container"></div>').appendTo(div); 
                 $(data.series).each(function (key, val) {
                     $(newDiv).append('<p class="estpay">In ' + val.year + ' the average weekly wage was £' + val.estpay + '</p>');
                     // $(newDiv).append('<p class="year">' + val.year + '</p>');
                 });
-
             }
             // implement error, complete and beforeSend functions...
 

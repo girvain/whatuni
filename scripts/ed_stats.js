@@ -20,15 +20,15 @@ $(document).ready(function () {
     // create the tables
     getDataMFChart(all, "male-female-chart");
     getData(agr, "agriculture-chart");
-    getData(ed, "education-chart");
-    getData(helWel, "health-welfare-chart");
-    getData(humArt, "humanities-arts-chart");
-    getData(sci, "science-chart");
-    getData(ser, "services-chart");
-    getData(socBusLaw, "social-business-law-chart");
-    getData(engManCon, "engin-manuf-constru-chart");
-
-
+    getData(ed, "ed-chart");
+    
+    // getData(helWel, "health-welfare-chart");
+    // getData(humArt, "humanities-arts-chart");
+    // getData(sci, "science-chart");
+   
+    // getData(ser, "services-chart");
+    // getData(socBusLaw, "social-business-law-chart");
+    // getData(engManCon, "engin-manuf-constru-chart");
 
     /* -------------------------------------------- Functions --------------------------------------------------- */
 
@@ -53,6 +53,8 @@ $(document).ready(function () {
             dataType: "xml",
             success: function (data) {
                 $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
+                    // console.log($(val).find('wb\\:date').text());
+                    console.log(data);
                     descArray.push($(val).find('wb\\:indicator').text());
                     dateArray.push($(val).find('wb\\:date').text());
                     // the xml of the % is a string so needs converted to an int

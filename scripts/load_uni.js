@@ -4,8 +4,10 @@ $(document).ready(function () {
     console.log(data);
 
     $(data).each(function (key, val) {
-      var newDiv = $('<div class="uni-info-container"></div>').appendTo("#unis-display-area");
+      var newDiv = $('<div class="uni-info-container shadow-container"></div>').appendTo("#unis-display-area");
       $(newDiv).append('<h3 class="name">' + val.name + '</h3>');
+      // var linkContainer = $('<div class="link-container"></div>').appendTo(newDiv);
+      // $(newDiv).append('<img src="images/cap.png">');
       $(newDiv).append('<a href="' + val.web_pages + '">' + val.web_pages + '</a>');
 
     });

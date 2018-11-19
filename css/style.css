@@ -1,28 +1,364 @@
-/* #male-female-chart-wrapper {
-  align-content: center;
-  margin: 0 auto;
+body {
+  margin: 0;
+  padding-top: 45px;
+  /* to give the navbar no overlap */
 }
 
-#agriculture-chart-wrapper {
-  margin : 0 auto;
-  align-content: center;
-} 
-
-#stats-area {
-  /* max-width: 50%; */
-  /* float: left; */
-  /* margin: 0 auto;  */
-/* } */ 
-
-/* #agriculture-chart-section {
-  float: left;
-  max-width: 50%;
+h1,
+h2,
+h3 {
+  text-align: center;
 }
-#education-chart-section {
-  float: right;
-  max-width: 50%;
 
+/** =====================================================
+ *                       homepage 
+/* ===================================================== */
+.feature-page {
+  background-color: #2979FF;
+  /* material desing color A400 */
 }
-#health-welfare-section {
-  clear: both;
-} */
+
+/** =====================================================
+ *                        Navbar 
+/* ===================================================== */
+.topnav {
+  background-color: #2979FF;
+  /* material desing color A400 */
+  text-decoration: none;
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  /* Position the navbar at the top of the page */
+  width: 100%;
+  /* Full width */
+  z-index: 100;
+  display: inline;
+  /* max-height: 60px; */
+}
+
+/* .topnav img {
+  max-height: 1.5em;
+  margin: 0 0;
+  /* padding-top: 10px; */
+/* text-align: center; */
+/* display: inline-block; */
+/* width: auto; */
+/* } */
+.topnav a {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* mobile navbar */
+#nav-items {
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  text-align: center;
+}
+
+#nav-items li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: lightgray;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* hamburger icon */
+.topnav i {
+  padding: .7em;
+  /* margin: 20px; */
+  text-decoration: none;
+  color: white;
+}
+
+/* hamburger icon anchor */
+.topnav a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.active {
+  background-color: #2979FF;
+  color: white;
+}
+
+nav {
+  display: none;
+  /* hide the desktop navbar */
+}
+
+/** =====================================================
+ *                      Uni's page
+/* ===================================================== */
+.uni-info-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-height: 4em;
+  /* background-color: whitesmoke; */
+  /* padding: 5px; */
+}
+
+.feature-img {
+  width: 100%;
+  height: auto;
+}
+
+.shadow-container {
+  background-color: whitesmoke;
+  -webkit-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  padding-bottom: 1em;
+}
+
+.shadow-container h3 {
+  padding-top: 1em;
+  margin: 0;
+}
+
+.shadow-container a {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+/** =====================================================
+ *                      Jobs page
+/* ===================================================== */
+.jobs-input-area input,
+button {
+  display: block;
+  margin: 1em auto;
+  margin-top: .2em;
+}
+
+.jobs-input-area h3 {
+  margin: 0;
+}
+
+.job-search-display-area {}
+
+.job-info-container {}
+
+/** =====================================================
+ *                         All 
+/* ===================================================== */
+.center-text {
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/** =====================================================
+ *                        icons 
+/* ===================================================== */
+.fab {
+  size: 50px;
+  padding: .5em;
+  color: white;
+}
+
+/** =====================================================
+ *                       buttons 
+/* ===================================================== */
+button {
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 98%;
+}
+
+button {
+  background-color: #2979FF;
+  color: white;
+  border: 2px solid #2979FF;
+}
+
+button:hover {
+  background-color: white;
+  color: #2979FF;
+  border: 2px solid #2979FF;
+}
+
+/** button invert style class */
+.button-invert {
+  background-color: white;
+  color: #2979FF;
+  border: 2px solid #2979FF;
+}
+
+.button-invert:hover {
+  background-color: #2979FF;
+
+  color: white;
+  border: 2px solid #2979FF;
+}
+
+
+/** =====================================================
+ *                       buttons 
+/* ===================================================== */
+input {
+  padding: 8px 0px;
+  margin: 0px 2px;
+  width: 96%;
+}
+
+/** =====================================================
+ *                       footer 
+/* ===================================================== */
+footer {
+  background-color: #2979FF;
+  margin-top: 2em;
+  min-height: 200px;
+  bottom: 0;
+}
+
+footer img {
+  display: block;
+  height: 2em;
+  margin-top: 1em;
+  margin-bottom: .5em;
+  /* margin-bottom: .5em; */
+  /* padding-top: 10px; */
+  text-align: center;
+  display: inline-block;
+  width: auto;
+}
+
+p,
+a {
+  margin: 0;
+  padding: .5em;
+  display: block;
+}
+
+/** =====================================================
+ *                      media queries 
+/* ===================================================== */
+nav {
+  grid-area: nav;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content"
+    "sidebar"
+    "ad"
+    "footer";
+}
+
+@media (min-width: 500px) {
+
+  /** navbar */
+  .topnav {
+    display: none;
+  }
+
+  #nav-logo {
+    max-height: 3em;
+    margin: 0 0;
+    padding: 0 1em;
+  }
+
+  nav {
+    background-color: #2979FF;
+    /* material desing color A400 */
+    text-decoration: none;
+    display: block;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
+    z-index: 100;
+    display: inline-block;
+  }
+
+  .active {
+    background-color: white;
+    /* material desing color A400 */
+  }
+
+  nav li:hover {
+    background-color: white;
+    color: #2979FF;
+    /* border: 2px solid #2979FF; */
+  }
+
+  nav ul {
+    margin: 0;
+    padding: .2em 1em;
+  }
+
+  nav ul li {
+    display: block;
+    padding-top: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-decoration: none;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .grid-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+  }
+
+  nav ul {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+
+  /* buttons and inputs*/
+  button {
+    max-width: 300px;
+  }
+
+  input {
+    max-width: 500px;
+  }
+
+  /* containers */
+  .main-container {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
