@@ -9,13 +9,13 @@ body {
 /** =====================================================
  *                      fonts 
 /* ===================================================== */
-p, h2, h3 {
+p, h2, h3, a{
   font-family: 'Nunito Sans', sans-serif;
 }
 h1 {
   font-family: 'Indie Flower', cursive;
   font-weight: 600;
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-bottom: .2em;
 }
 
@@ -39,9 +39,21 @@ nav {
   margin-right: auto;
   margin-top: 80px;
   /* padding-top: 100px; */
-
 }
-
+.main-container-above-img {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.job-info-container {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 .shadow-container {
   background-color: whitesmoke;
   max-width: 720px;
@@ -49,6 +61,8 @@ nav {
   -moz-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
   box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
   padding-bottom: 1em;
+  margin-top: .2em;
+  margin-bottom: .2em;
 }
 
 .shadow-container h3 {
@@ -194,7 +208,7 @@ nav {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  max-height: 4em;
+  /* max-height: 4em; */
   /* background-color: whitesmoke; */
   /* padding: 5px; */
 }
@@ -203,6 +217,7 @@ nav {
   text-decoration: none;
   /* font-family: 'Indie flower', cursive; */
   font-size: 1em;
+  margin-bottom: 0;
 }
 
 .feature-img {
