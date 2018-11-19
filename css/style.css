@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding-top: 45px;
+  /* padding-top: 45px; */
   /*  background-color: #2979FF;    */
   /* font-family: 'Allerta Stencil', sans-serif; */
   /* font-family: 'Nunito Sans', sans-serif; */
@@ -15,7 +15,7 @@ p, h2, h3 {
 h1 {
   font-family: 'Indie Flower', cursive;
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.8em;
   margin-bottom: .2em;
 }
 
@@ -37,7 +37,9 @@ nav {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
+  margin-top: 80px;
+  /* padding-top: 100px; */
+
 }
 
 .shadow-container {
@@ -93,6 +95,9 @@ nav {
 #home-nav p {
   display: inline-block;
   text-decoration: none;
+  color: white;
+}
+#description {
   color: white;
 }
 
@@ -440,6 +445,14 @@ a {
   input {
     max-width: 500px;
   }
+
+ /* fonts   */
+h1 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 600;
+  font-size: 2.2em;
+  margin-bottom: .2em;
+}
 
   /* containers */
   .main-container {
