@@ -2,7 +2,29 @@ body {
   margin: 0;
   padding-top: 45px;
   /*  background-color: #2979FF;    */
-  /* to give the navbar no overlap */
+  /* font-family: 'Allerta Stencil', sans-serif; */
+  /* font-family: 'Nunito Sans', sans-serif; */
+} /* to give the navbar no overlap */
+
+/** =====================================================
+ *                      fonts 
+/* ===================================================== */
+p, h2, h3 {
+  font-family: 'Nunito Sans', sans-serif;
+}
+h1 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 600;
+  font-size: 2em;
+  margin-bottom: .2em;
+}
+
+#home-nav{
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1em;
+}
+nav {
+  font-weight: 400;
 }
 
 /** =====================================================
@@ -78,7 +100,7 @@ body {
 a:visited,
 a:link,
 a:active {
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 #description {
@@ -171,6 +193,12 @@ nav {
   /* background-color: whitesmoke; */
   /* padding: 5px; */
 }
+.uni-info-container a {
+  color: #2979FF;
+  text-decoration: none;
+  /* font-family: 'Indie flower', cursive; */
+  font-size: 1em;
+}
 
 .feature-img {
   width: 100%;
@@ -216,6 +244,7 @@ button {
   padding: .5em;
   color: white;
 }
+
 
 /** =====================================================
  *                       buttons 
