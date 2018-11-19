@@ -1,14 +1,22 @@
 body {
   margin: 0;
-  padding-top: 45px;
+  padding-top: 45px;            
+/*  background-color: #2979FF;    */
   /* to give the navbar no overlap */
 }
 
-h1,
-h2,
-h3 {
-  text-align: center;
-}
+/** =====================================================
+ *                      containers 
+/* ===================================================== */
+
+  /* containers */
+  .main-container {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
 
 /** =====================================================
  *                       homepage 
@@ -16,6 +24,40 @@ h3 {
 .feature-page {
   background-color: #2979FF;
   /* material desing color A400 */
+  margin-top: 0px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#feature-logo {
+    padding-top: 4em;
+}
+#feature-logo{
+    width:60%; /* you can use % */
+    height: auto;
+    max-width: 400px;
+}
+#home-nav {
+    margin-top: .5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+#home-nav a, #home-nav p{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+#home-nav a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+#description {
+    max-width: 600px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    display: none;
 }
 
 /** =====================================================
@@ -37,20 +79,10 @@ h3 {
   /* max-height: 60px; */
 }
 
-/* .topnav img {
-  max-height: 1.5em;
-  margin: 0 0;
-  /* padding-top: 10px; */
-/* text-align: center; */
-/* display: inline-block; */
-/* width: auto; */
-/* } */
 .topnav a {
   margin: 0;
   padding: 0;
 }
-
-
 
 /* mobile navbar */
 #nav-items {
@@ -84,7 +116,8 @@ h3 {
 .topnav a,
 a:hover,
 a:focus {
-  text-decoration: none;
+    text-decoration: none;
+
 }
 
 .active {
@@ -149,7 +182,9 @@ button {
 
 .job-search-display-area {}
 
-.job-info-container {}
+.{
+    margin: 1em;
+}
 
 /** =====================================================
  *                         All 
@@ -214,9 +249,19 @@ button:hover {
 
 .button-invert:hover {
   background-color: #2979FF;
-
   color: white;
   border: 2px solid #2979FF;
+}
+/** button transparent class */
+.button-trans{
+  background-color: #2979FF;
+  color: white;
+  border: 2px solid white;
+}
+.button-trans:hover{
+  background-color: white;
+  color: #2979FF;
+  border: 2px solid white;
 }
 
 
@@ -234,9 +279,11 @@ input {
 /* ===================================================== */
 footer {
   background-color: #2979FF;
+  /* position: absolute; */
+  bottom: 0;
   margin-top: 2em;
   min-height: 200px;
-  bottom: 0;
+  width: 100%;
 }
 
 footer img {
@@ -287,7 +334,7 @@ nav {
   #nav-logo {
     max-height: 3em;
     margin: 0 0;
-    padding: 0 1em;
+    padding-left: 4em;
   }
 
   nav {
@@ -303,6 +350,7 @@ nav {
     /* Full width */
     z-index: 100;
     display: inline-block;
+
   }
 
   .active {
@@ -356,9 +404,17 @@ nav {
 
   /* containers */
   .main-container {
+    min-height: 100vh; /* will cover the 100% of viewport */
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 4em ;
+  }
+  .main-container p {
+      max-width: 650px;
+      display: block;
+      margin: 0 auto;
+      /*margin-bottom: 4em; */
   }
 }

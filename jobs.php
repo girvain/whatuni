@@ -29,42 +29,43 @@
   <nav>
     <ul>
       <img src="images/logo.png" alt="" id="nav-logo">
-      <li><a href="index.html">home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="unis.html">Uni's</a></li>
       <li><a href="stats.html">Stats</a></li>
       <li><a href="jobs.php">Jobs</a></li>
     </ul>
   </nav>
 
-  <h1>Jobs</h1>
+  <div class="main-container">
+    <h1>Jobs</h1>
 
-  <div id="stats-area">
-    <h2>Top 10 Most Popular Searches</h2>
-    <div id="search-log-chart-section">
-      <div id="search-log-chart"></div>
+    <div id="stats-area">
+      <h2>Top 10 Most Popular Searches</h2>
+      <div id="search-log-chart-section">
+        <div id="search-log-chart"></div>
+      </div>
+    </div>
+
+    <div class="jobs-input-area center-text">
+      <div id="job-name-input">
+        <h3>Enter Job Name</h3>
+        <input id="job-search-input" type="text" name="job-search-input">
+        <button id="job-search-button">search</button>
+      </div>
+      <div id="job-search-display-area"></div>
+
+      <div id="soc-number-input">
+        <h2>Find out More?</h2>
+        <p>Enter a soc code and age from a job search above to find out the average weekly salary for your exact age</p>
+        <h3>Soc Number Input</h3>
+        <input id="soc-input" type="text" name="soc-input" size="14">
+        <h3>Age Input</h3>
+        <input id="age-input" type="text" name="age-input">
+        <button id="soc-number-button">search</button>
+      </div>
+      <div id="soc-number-display-area"></div>
     </div>
   </div>
-
-  <div class="jobs-input-area center-text">
-    <div id="job-name-input">
-      <h3>Enter Job Name</h3>
-      <input id="job-search-input" type="text" name="job-search-input">
-      <button id="job-search-button">search</button>
-    </div>
-    <div id="job-search-display-area"></div>
-
-    <div id="soc-number-input">
-      <h2>Find out More?</h2>
-      <p>Enter a soc code and age from a job search above to find out the average weekly salary for your exact age</p>
-      <h3>Soc Number Input</h3>
-      <input id="soc-input" type="text" name="soc-input" size="14">
-      <h3>Age Input</h3>
-      <input id="age-input" type="text" name="age-input">
-      <button id="soc-number-button">search</button>
-    </div>
-    <div id="soc-number-display-area"></div>
-  </div>
-
   <footer class="center-text">
     <img src="images/logo.png" alt="">
 

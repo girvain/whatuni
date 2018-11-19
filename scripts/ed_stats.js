@@ -10,8 +10,8 @@ $(document).ready(function () {
     var all = "http://api.worldbank.org/v2/countries/GBR/indicators/SE.TER.ENRL?date=2009:2015";
     var agr = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F600?date=2009:2015"; // wrong, Information and Communication Technologies
     var ed = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F140?date=2009:2015";
-    var helWel = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F700?date=2009:2015"; //wrong, eng, man, construction
     var humArt = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F200?date=2009:2015";
+    var helWel = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F700?date=2009:2015"; //wrong, eng, man, construction
     var sci = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F400?date=2009:2015"; // wrong, bus admin and law
     var ser = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F800?date=2009:2015"; // wrong, Agriculture, Forestry, Fisheries and Veterinary
     var socBusLaw = "http://api.worldbank.org/v2/countries/GBR/indicators/UIS.FOSEP.56.F300?date=2009:2015"; // wrong, Social Sciences, Journalism and Information programmes
@@ -22,13 +22,13 @@ $(document).ready(function () {
     getData(agr, "agriculture-chart");
     getData(ed, "ed-chart");
     
-    // getData(helWel, "health-welfare-chart");
-    // getData(humArt, "humanities-arts-chart");
-    // getData(sci, "science-chart");
+    getData(helWel, "health-welfare-chart");
+    getData(humArt, "humanities-arts-chart");
+    getData(sci, "science-chart");
    
-    // getData(ser, "services-chart");
-    // getData(socBusLaw, "social-business-law-chart");
-    // getData(engManCon, "engin-manuf-constru-chart");
+    getData(ser, "services-chart");
+    getData(socBusLaw, "social-business-law-chart");
+    getData(engManCon, "engin-manuf-constru-chart");
 
     /* -------------------------------------------- Functions --------------------------------------------------- */
 
@@ -53,8 +53,6 @@ $(document).ready(function () {
             dataType: "xml",
             success: function (data) {
                 $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
-                    // console.log($(val).find('wb\\:date').text());
-                    console.log(data);
                     descArray.push($(val).find('wb\\:indicator').text());
                     dateArray.push($(val).find('wb\\:date').text());
                     // the xml of the % is a string so needs converted to an int
@@ -65,7 +63,7 @@ $(document).ready(function () {
                 });
                 // select the div passed to function, then append the description in the 
                 // parent div
-                $('#' + id).parent().prepend('<p>' + descArray[0] + '</p>');
+                $('#' + id).parent().append('<p>' + descArray[0] + '</p>');
 
                 // create the graph object then call render graph with it
                 var agroGraphObj = makeObj(dateArray, valueArray, "bar");
@@ -86,6 +84,7 @@ $(document).ready(function () {
             cache: false,
             dataType: "xml",
             success: function (data) {
+                console.log(data);
                 $(data).find('wb\\:data').find("wb\\:data").each(function (key, val) {
                     descArray.push($(val).find('wb\\:indicator').text());
                     dateArray.push($(val).find('wb\\:date').text());
@@ -95,7 +94,7 @@ $(document).ready(function () {
                 });
                 // select the div passed to function, then append the description in the 
                 // parent div
-                $('#' + id).parent().prepend('<p>' + descArray[0] + '</p>');
+                $('#' + id).parent().append('<p>' + descArray[0] + '</p>');
 
                 // Make a custom object for this without percentages
                 var chartObj = {
