@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  padding-top: 45px;            
-/*  background-color: #2979FF;    */
+  padding-top: 45px;
+  /*  background-color: #2979FF;    */
   /* to give the navbar no overlap */
 }
 
@@ -9,14 +9,33 @@ body {
  *                      containers 
 /* ===================================================== */
 
-  /* containers */
-  .main-container {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-  }
+/* containers */
+.main-container {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+.shadow-container {
+  background-color: whitesmoke;
+  max-width: 720px;
+  -webkit-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
+  padding-bottom: 1em;
+}
+
+.shadow-container h3 {
+  padding-top: 1em;
+  margin: 0;
+}
+
+.shadow-container a {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
 
 /** =====================================================
  *                       homepage 
@@ -30,34 +49,44 @@ body {
   margin-right: auto;
   text-align: center;
 }
+
 #feature-logo {
-    padding-top: 4em;
+  padding-top: 4em;
 }
-#feature-logo{
-    width:60%; /* you can use % */
-    height: auto;
-    max-width: 400px;
+
+#feature-logo {
+  width: 60%;
+  /* you can use % */
+  height: auto;
+  max-width: 400px;
 }
+
 #home-nav {
-    margin-top: .5em;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: .5em;
+  margin-left: auto;
+  margin-right: auto;
 }
-#home-nav a, #home-nav p{
-    display: inline-block;
-    text-decoration: none;
-    color: white;
+
+#home-nav a,
+#home-nav p {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
 }
-#home-nav a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
+
+#home-nav a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
 }
+
 #description {
-    max-width: 600px;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    display: none;
+  max-width: 600px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  display: none;
 }
 
 /** =====================================================
@@ -116,7 +145,7 @@ body {
 .topnav a,
 a:hover,
 a:focus {
-    text-decoration: none;
+  text-decoration: none;
 
 }
 
@@ -148,23 +177,7 @@ nav {
   height: auto;
 }
 
-.shadow-container {
-  background-color: whitesmoke;
-  -webkit-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
-  box-shadow: 1px 7px 32px -6px rgba(0, 0, 0, 0.38);
-  padding-bottom: 1em;
-}
 
-.shadow-container h3 {
-  padding-top: 1em;
-  margin: 0;
-}
-
-.shadow-container a {
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-}
 
 /** =====================================================
  *                      Jobs page
@@ -174,16 +187,11 @@ button {
   display: block;
   margin: 1em auto;
   margin-top: .2em;
+  font-size: 1em;
 }
 
 .jobs-input-area h3 {
   margin: 0;
-}
-
-.job-search-display-area {}
-
-.{
-    margin: 1em;
 }
 
 /** =====================================================
@@ -252,13 +260,15 @@ button:hover {
   color: white;
   border: 2px solid #2979FF;
 }
+
 /** button transparent class */
-.button-trans{
+.button-trans {
   background-color: #2979FF;
   color: white;
   border: 2px solid white;
 }
-.button-trans:hover{
+
+.button-trans:hover {
   background-color: white;
   color: #2979FF;
   border: 2px solid white;
@@ -308,23 +318,17 @@ a {
 /** =====================================================
  *                      media queries 
 /* ===================================================== */
-nav {
-  grid-area: nav;
+
+/** extra query for grid area and graphs */
+@media (min-width: 700px) {
+  .grid-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
 }
 
-.wrapper {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas:
-    "header"
-    "nav"
-    "content"
-    "sidebar"
-    "ad"
-    "footer";
-}
-
-@media (min-width: 500px) {
+@media (min-width: 600px) {
 
   /** navbar */
   .topnav {
@@ -334,7 +338,7 @@ nav {
   #nav-logo {
     max-height: 3em;
     margin: 0 0;
-    padding-left: 4em;
+    padding-left: 3em;
   }
 
   nav {
@@ -359,19 +363,19 @@ nav {
   }
 
   nav li:hover {
-    background-color: white;
+    background-color: #448AFF;
     color: #2979FF;
-    /* border: 2px solid #2979FF; */
+    /* border: 2px solid white; */
   }
 
   nav ul {
     margin: 0;
-    padding: .2em 1em;
+    padding: 0 1em;
   }
 
   nav ul li {
     display: block;
-    padding-top: .5em;
+    padding: .5em;
     padding-left: 1em;
     padding-right: 1em;
     text-decoration: none;
@@ -381,12 +385,18 @@ nav {
     color: white;
     text-decoration: none;
   }
+  /* nav ul a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+  } */
 
-  .grid-area {
+  /* .grid-area {
     display: grid;
     grid-template-columns: 1fr 1fr;
     
-  }
+  } */
 
   nav ul {
     display: flex;
@@ -404,17 +414,38 @@ nav {
 
   /* containers */
   .main-container {
-    min-height: 100vh; /* will cover the 100% of viewport */
+    min-height: 100vh;
+    /* will cover the 100% of viewport */
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 4em ;
+    padding: 0 1em;
   }
+
   .main-container p {
-      max-width: 650px;
-      display: block;
-      margin: 0 auto;
-      /*margin-bottom: 4em; */
+    max-width: 650px;
+    display: block;
+    margin: 0 auto;
+    /*margin-bottom: 4em; */
+  }
+
+  /* feature page */
+  #feature-logo {
+    padding-top: 6em;
+  }
+}
+
+@media (min-width: 1080px) {
+  #stats-area {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  
+}
+
+@media (min-width: 1400px) {
+  #nav-logo {
+    padding-left: 150px;
   }
 }
