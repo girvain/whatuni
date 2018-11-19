@@ -345,6 +345,10 @@ footer {
   margin-top: 2em;
   min-height: 200px;
   width: 100%;
+  color: white;
+}
+footer a {
+  color: white;
 }
 
 footer img {
