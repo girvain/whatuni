@@ -3,7 +3,10 @@
 $text = $_POST['text'];
 $defaultNum = 1;
 //connect to database
-$dbc = mysqli_connect('localhost', 'root', 'root', 'whatuni')
+// $dbc = mysqli_connect('localhost', 'root', 'root', 'whatuni') // mamp database
+//or die('Error connecting to MySQL server.'); 
+
+$dbc = mysqli_connect('sql206.epizy.com', 'epiz_23030334', '5zoz8UjMZiy', 'epiz_23030334_whatuni') // infinity database
 or die('Error connecting to MySQL server.');
 
 // insert the search text into the database

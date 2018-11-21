@@ -65,6 +65,9 @@ $(document).ready(function () {
                 // parent div
                 $('#' + id).parent().append('<p>' + descArray[0] + '</p>');
 
+                // reverse the arrays so they go from low to high
+                dateArray.reverse();
+                valueArray.reverse();
                 // create the graph object then call render graph with it
                 var agroGraphObj = makeObj(dateArray, valueArray, "bar");
                 renderGraph(id, agroGraphObj);
@@ -95,6 +98,11 @@ $(document).ready(function () {
                 // select the div passed to function, then append the description in the 
                 // parent div
                 $('#' + id).parent().append('<p>' + descArray[0] + '</p>');
+
+                // reverse the arrays so they go from low to high
+                dateArray.reverse();
+                valueArray.reverse();
+
 
                 // Make a custom object for this without percentages
                 var chartObj = {
